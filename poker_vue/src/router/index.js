@@ -13,7 +13,27 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: () => import('../views/Login.vue')
-    }
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: () => import('../views/Register.vue')
+    },
+    {
+      path: '/creategame',
+      name: 'creategame',
+      component: () => import('../views/Creategame.vue')
+    },
+    {
+      path: '/game',
+      name: 'game',
+      component: () => import('../views/Game.vue')
+    },
+    {
+      path: '/userlist',
+      name: 'userlist',
+      component: () => import('../views/Userlist.vue')
+    },
   ]
 })
 

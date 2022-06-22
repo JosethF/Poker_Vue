@@ -12,9 +12,9 @@
         <div id="right">
           <ul>
             <li> <a href="login">LOGIN</a></li>
-            <li> <a href="#">SIGN UP</a></li>
+            <li> <a href="register">SIGN UP</a></li>
             <div id="button">
-              <li> <a href="#">START NEW GAME</a></li>
+              <li> <a href="creategame">START NEW GAME</a></li>
             </div>
           </ul>
         </div>
@@ -68,9 +68,9 @@
   }
   #button{
     height: 3em;
+    width: 40%;
     padding: 0.3em;
     background-color: #3993ff;
-    text-align: center;
     align-items: center;
     border-radius: .8rem;
     display: inline-flex;
@@ -81,6 +81,9 @@
   
   #button:hover{
     background-color: #74b3ff;
+  }
+  #button > li {
+    margin: auto;
   }
   
   #button > li > a {
