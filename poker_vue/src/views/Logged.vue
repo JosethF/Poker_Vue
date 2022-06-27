@@ -1,0 +1,80 @@
+<script setup>
+</script>
+
+<template>
+  <div class="menu-container">
+      <header>
+        <div class="left">
+          <a href="/">
+            <img src="https://boldworkplanner.com/wp-content/themes/boldworkplannertheme/imgs/logo-bold.svg" alt="logo">
+          </a>
+        </div>
+        <div class="right">
+          <ul>
+            <li> <a href="userlist">USERLIST</a></li>
+            <li> <a href="#">CONTACT</a></li>
+            <div class="button-mod">
+              <li> <a href="creategame">START NEW GAME</a></li>
+            </div>
+          </ul>
+        </div>
+      </header>
+  </div>
+  <div class="space"></div>
+  <main>
+    <div class="container">
+      <p>Saved Games</p>
+    </div>
+    <div class="games">
+        <article>
+            <a href="#">
+                <p>Sesión 1</p>
+                <p>18/06/2022</p>
+            </a>
+        </article>
+        <article>
+            <a href="#">
+                <p>Sesión</p>
+                <p>20/06/2022</p>
+            </a>
+        </article>
+        <article>
+            <a href="#">
+                <p>Sesión</p>
+                <p>20/06/2022</p>
+            </a>
+        </article>
+        <article>
+            <a href="#">
+                <p>Sesión</p>
+                <p>20/06/2022</p>
+            </a>
+        </article>
+        <article>
+            <a href="#">
+                <p>Sesión</p>
+                <p>20/06/2022</p>
+            </a>
+        </article>
+    </div>
+  </main>
+</template>
+
+<style>
+.games{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+.games > article{
+    width: 15rem;
+    border: 0.2rem solid #3993ff;
+    border-radius: 0.7rem;
+    margin-top: 2rem;
+    box-sizing: content-box;
+    text-align: center;
+}
+</style>
