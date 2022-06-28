@@ -43,6 +43,16 @@ a{
 a:hover{
     color: #74b3ff;
 }
+table{
+    margin: auto;
+    width: 80%;
+    border: 0.15rem solid;
+    border-color: #dee2e6;
+    text-align: left;
+}
+th, td{
+    padding: 0.40rem;
+}
 .menu-container {
     top:0;
     left: 0;
@@ -85,7 +95,7 @@ header, .right > ul {
 }
 .button-mod{
     height: 3em;
-    width: 40%;
+    width: 35%;
     padding: 0.3em;
     background-color: #3993ff;
     align-items: center;
@@ -136,3 +146,4 @@ header, .right > ul {
 .space{
   height: 4rem;
 }
+

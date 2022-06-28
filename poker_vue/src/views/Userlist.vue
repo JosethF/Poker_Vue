@@ -25,9 +25,9 @@ import users from '../mock/users';
                 </tr>
             </thead>
             <tbody >
-                <tr v-for="user in users" :key="user.id" @click="">
-                    <td>{{user.username}}</td> 
-                    <td>{{user.privileges}}</td>
+                <tr v-for="{username,privileges} in users" :key="id">
+                    <td>{{username}}</td> 
+                    <td>{{privileges}}</td>
                     <td>
                       <div class="right">
                         <ul>
@@ -48,14 +48,5 @@ import users from '../mock/users';
 </template>
 
 <style>
-table{
-    margin: auto;
-    width: 80%;
-    border: 0.15rem solid;
-    border-color: #dee2e6;
-    text-align: left;
-}
-th, td{
-    padding: 0.40rem;
-}
+
 </style>
