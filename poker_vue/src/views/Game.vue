@@ -47,6 +47,8 @@ const display = ()=>{
           <form action="#" method="GET">
             <div class="data">
                 <input type="text" name="username" placeholder="Enter Status"/>
+            </div>
+            <div class="data">
                 <button type="submit">Search</button>
             </div>
           </form>

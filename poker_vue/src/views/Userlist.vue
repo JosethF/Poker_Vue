@@ -40,7 +40,7 @@ export default {
                 <tr>
                     <th scope="col">Username</th>
                     <th scope="col">Privileges</th>
-                    <th scope="col">Modify</th>
+                    <th scope="col"><p>Modify</p></th>
                 </tr>
             </thead>
             <tbody >
@@ -67,5 +67,9 @@ export default {
 </template>
 
 <style>
-
+table > thead > tr > th > p{
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 13rem;
+}
 </style>
