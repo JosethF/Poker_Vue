@@ -1,5 +1,25 @@
-<script setup>
-import users from '../mock/users';
+<script>
+
+import axios from 'axios';
+export default {
+  name: "get-UserList",
+  data() {
+    return {  
+      User:{} 
+    }
+  },
+  mounted(){
+    axios.get('http://localhost:3001/userList')
+    .then((response)=>{
+      console.log(response.data.User)
+      this.User = response.data.User;
+    })
+    .catch((e)=>{
+      console.log(e)
+    })
+  }
+};
+
 </script>
 
 <template>
@@ -25,14 +45,14 @@ import users from '../mock/users';
                 </tr>
             </thead>
             <tbody >
-                <tr v-for="{username,privileges} in users" :key="id">
-                    <td>{{username}}</td> 
-                    <td>{{privileges}}</td>
+                <tr v-for="user in User" :key="user.id">
+                    <td>{{user.username}}</td> 
+                    <td>{{user.permiss}}</td>
                     <td>
                       <div class="right">
                         <ul>
                           <div class="button-mod">
-                            <li> <a href="creategame">EDIT</a></li>
+                            <li> EDIT</li>
                           </div>
                           <div class="button-mod">
                             <li> <a href="creategame">DELETE</a></li>

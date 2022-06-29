@@ -1,7 +1,16 @@
 <script setup>
 import {ref} from 'vue'
 import issues from '../mock/issues';
-const isOpen = ref(false)
+let isOpen = ref(false)
+
+const display = ()=>{
+  if(isOpen.value){
+    isOpen.value = false;
+  }else{
+    isOpen.value = true;
+  }
+}
+
 </script>
 
 
@@ -21,7 +30,7 @@ const isOpen = ref(false)
               <div class="button-mod">
                 <li> <a href="invite">New Players</a></li>
               </div>
-              <div class="button-mod" @click="isOpen=true">
+              <div class="button-mod" @click="display()">
                 <li> <i class="fa fa-bars" aria-hidden="true"></i></li>
               </div>
             </ul>
