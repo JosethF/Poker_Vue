@@ -82,12 +82,10 @@ const display = ()=>{
   position: relative;
 }
 .show-issues{
-<<<<<<< Updated upstream
   position: absolute;
   width: 35rem;
   display: flex;
   flex-direction: column;
-=======
   width: 30rem;
   background-color: #fff;
   border-top: 0.3rem solid;
@@ -102,8 +100,6 @@ const display = ()=>{
   top: 0;
   z-index: 10;
   overflow: auto;
->>>>>>> Stashed changes
-  /*top: 0; */
 }
 .dentro{
   width: 90%;
@@ -114,16 +110,14 @@ const display = ()=>{
   flex-direction: row;
   width: 100%;
 }
-
 .top > i{
   margin: auto;
 }
 .dentro > .data {
   width: 100%;
 }
-
 .show-issues > .dentro > .issues > table{
-  width: 30rem;
+  width: 25rem;
   margin-bottom: 1rem;
 }
 </style>
