@@ -7,15 +7,13 @@ export default {
       User:{} 
     }
   },
-  mounted(){
-    axios.get('http://localhost:3001/userList')
-    .then((response)=>{
-      console.log(response.data.User)
+  async mounted(){
+    try{
+      const response = await  axios.get('http://localhost:3001/userList')
       this.User = response.data.User;
-    })
-    .catch((e)=>{
+    }catch(e){
       console.log(e)
-    })
+    }
   }
 };
 
