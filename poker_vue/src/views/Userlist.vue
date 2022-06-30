@@ -45,9 +45,9 @@ export default {
                 </tr>
             </thead>
             <tbody >
-                <tr v-for="user in User" :key="user.id">
-                    <td>{{user.username}}</td> 
-                    <td>{{user.permiss}}</td>
+                <tr v-for="{username,permiss} in User" :key="id">
+                    <td>{{username}}</td> 
+                    <td>{{permiss}}</td>
                     <td>
                       <div class="right">
                         <ul>
