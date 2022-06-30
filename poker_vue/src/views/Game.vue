@@ -47,6 +47,8 @@ const display = ()=>{
           <form action="#" method="GET">
             <div class="data">
                 <input type="text" name="username" placeholder="Enter Status"/>
+            </div>
+            <div class="data">
                 <button type="submit">Search</button>
             </div>
           </form>
@@ -84,10 +86,16 @@ const display = ()=>{
   position: relative;
 }
 .show-issues{
-  position: absolute;
-  width: 35rem;
-  display: flex;
-  flex-direction: column;
+  width: 30rem;
+  background-color: #fff;
+  bottom: 0;
+  max-width: 100%;
+  padding: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10;
+  overflow: auto;
   /*top: 0; */
 }
 .dentro{
@@ -108,7 +116,7 @@ const display = ()=>{
 }
 
 .show-issues > .dentro > .issues > table{
-  width: 30rem;
+  width: 100%;
   margin-bottom: 1rem;
 }
 </style>
