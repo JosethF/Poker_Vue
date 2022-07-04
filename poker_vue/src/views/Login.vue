@@ -1,6 +1,5 @@
 <script >
 
-import axios from 'axios';
 import { LoginAPI } from '../store/login/actions'
 
 
@@ -9,40 +8,33 @@ export default {
   data () {
     return {
       username: '',
-      password: ''
+      password: '',
+      showError: false
     }
   },
   methods: {
     async login () {
-        try{
-            // const response = await axios.post('http://localhost:3001/log', {
-            //     params: {username:this.username,password:this.password}
-            // })
-            LoginAPI(this.username, this.password)
-            // const response = await axios({
-            //     url: "http://localhost:3001/log",
-            //     method: "POST",
-            //     data: {
-            //         username: this.username,
-            //         password: this.password
-            //     }
-            // })
+        try{     
+            if(this.username=="" || this.password==""){
+                console.log('No puede haber campos vacios');
+            }else{
+                await LoginAPI(this.username, this.password)
+            }            
         }catch(e){
-            console.log(e)
+            this.showError = true
+            console.log("Erorr")
         }  
-        
     }
-
   }
 }
-
 
 </script>
 
 <template>
     <div class="container">
         <h2>LOGIN</h2>
-        <form  @submit.prevent ="login">
+        <div v-if="showError">error!</div>
+        <form @submit.prevent ="login">
             <div class="data">
                 <label for="username">Username:</label>
                 <input 
@@ -61,7 +53,6 @@ export default {
                 name="password" 
                 placeholder="Enter Password"
                 required
-
                 >
             </div>
             <div class="data">
