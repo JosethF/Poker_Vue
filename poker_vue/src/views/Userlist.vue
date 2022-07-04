@@ -9,8 +9,18 @@ export default {
   },
   async mounted(){
     try{
-      const response = await  axios.get('http://localhost:3001/userList')
-      this.User = response.data.User;
+      const token = localStorage.getItem('token')
+      if(token==null) return;
+      const response = await axios({
+        url: "http://localhost:3001/userList",
+        method: "GET",
+        headers:{
+          Authorization: "Bearer "+token
+        }
+      })
+
+      this.User = response.data.User
+      
     }catch(e){
       console.log(e)
     }
@@ -42,7 +52,7 @@ export default {
                 </tr>
             </thead>
             <tbody >
-                <tr v-for="{username,permiss} in User" :key="id">
+                <tr v-for="{username,permiss} in User" :key="User.id">
                     <td>{{username}}</td> 
                     <td>{{permiss}}</td>
                     <td>
