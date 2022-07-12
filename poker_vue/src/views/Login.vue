@@ -22,7 +22,7 @@ export default {
             }            
         }catch(e){
             this.showError = true
-            console.log("Erorr")
+            console.log(e)
         }  
     }
   }

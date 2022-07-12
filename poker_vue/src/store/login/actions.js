@@ -10,14 +10,28 @@ export async function LoginAPI(username, password){
             password: password
         }
     }).then((response)=> {
-        console.log(response)
         localStorage.setItem('token',response.data);
         router.push({
             name: "logged"
         })
     }).catch((e)=> {
         throw new Error(e)
-        //localStorage.setItem('token','red');
     })
     
+}
+export async function RegisterAPI(username,password){
+    await axios({
+        url: "http://localhost:3001/register",
+        method:"POST",
+        data:{
+            username: username,
+            password: password
+        }
+    }).then((res)=>{
+        router.push({
+            name: "login"
+        })
+    }).catch((e)=>{
+        throw new Error(e)
+    })
 }

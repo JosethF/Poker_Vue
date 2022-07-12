@@ -11,8 +11,8 @@
         </div>
         <div class="right">
           <ul>
-            <li> <a href="userlist">USERLIST</a></li>
-            <li> <a href="#">CONTACT</a></li>
+            <li> <a href="/">LOGOUT</a></li>
+            <li> <a href="userlist">USERLIST</a></li>  
             <div class="button-mod">
               <li> <a href="creategame">START NEW GAME</a></li>
             </div>
