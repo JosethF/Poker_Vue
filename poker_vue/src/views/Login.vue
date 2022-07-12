@@ -17,7 +17,7 @@ export default {
                 console.log('No puede haber campos vacios');
             }else{
                 await LoginAPI(this.username, this.password)
-            }            
+            }
         }catch(e){
             this.showError = true
             console.log("Error")

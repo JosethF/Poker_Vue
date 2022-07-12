@@ -1,13 +1,29 @@
-<script setup>
-import {ref} from 'vue'
-import issues from '../mock/issues';
-let isOpen = ref(false)
+<script>
 
-const display = ()=>{
-  if(isOpen.value){
-    isOpen.value = false;
-  }else{
-    isOpen.value = true;
+import {queryAPI} from '../store/query/actions'
+
+
+export default{
+  name: "Query",
+  data(){
+    return{
+      issues:[],
+      status: "",
+      isOpen:false
+    }
+  },
+  methods:{
+    async query(){
+      try{
+        if(this.status===""){
+          console.log("Error")
+          return
+        }
+        await queryAPI(this.status)
+      }catch(e){
+        console.log("Error")
+      }
+    }
   }
 }
 
@@ -33,7 +49,7 @@ var user = localStorage.getItem('username');
               <div class="button-mod">
                 <li> <a href="#">New Players</a></li>
               </div>
-              <div class="button-mod" @click="display()">
+              <div class="button-mod" @click="isOpen=true">
                 <li> <i class="fa fa-bars" aria-hidden="true"></i></li>
               </div>
             </ul>
@@ -42,14 +58,19 @@ var user = localStorage.getItem('username');
     </div>
     <teleport to="body">
       <div class="show-issues" v-if="isOpen">
-        <div class="dentro">
-          <div class="top">
+        <div >
+          <div >
             <h1>Issues from Repository Github</h1>
             <i @click="isOpen = false" class="fa fa-window-close" aria-hidden="true"></i>
           </div>
-          <form action="#" method="GET">
+          <form @submit.prevent="query">
             <div class="data">
-                <input type="text" name="username" placeholder="Enter Status"/>
+                <input 
+                type="text" 
+                name="username" 
+                placeholder="Enter Status" 
+                v-model="status"
+                >
             </div>
             <div class="data">
                 <button type="submit">Search</button>
@@ -114,7 +135,7 @@ var user = localStorage.getItem('username');
 }
 .top{
   display: flex;
-  flex-direction: row;
+  flex-direction: top;
   width: 100%;
 }
 .top > i{
