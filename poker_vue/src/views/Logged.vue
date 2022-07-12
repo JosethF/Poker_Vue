@@ -1,4 +1,31 @@
-<script setup>
+<script>
+import axios from 'axios';
+export default {
+  name: "get-rules",
+  data() {
+    return {  
+      User:{},
+      showUserList: false
+    }
+  },
+  async mounted(){
+    try{
+      const token = localStorage.getItem('token')
+      if(token==null) return;
+      const response = await axios({
+        url: "http://localhost:3001/userList",
+        method: "GET",
+        headers:{
+          Authorization: "Bearer "+token
+        }
+      })
+      this.User = response.data.User
+      console.log(this.User);
+    }catch(e){
+      console.log(e)
+    }
+  }
+}
 </script>
 
 <template>
@@ -11,8 +38,8 @@
         </div>
         <div class="right">
           <ul>
-            <li> <a href="userlist">USERLIST</a></li>
-            <li> <a href="#">CONTACT</a></li>
+            <li v-if="showUserList"> <a href="userlist">USERLIST</a></li>
+            <li> <a href="login">LOGOUT</a></li>
             <div class="button-mod">
               <li> <a href="creategame">START NEW GAME</a></li>
             </div>

@@ -11,13 +11,32 @@ export async function LoginAPI(username, password){
         }
     }).then((response)=> {
         console.log(response)
+        localStorage.setItem('username',username);
+        localStorage.setItem('permiss',permiss);
         localStorage.setItem('token',response.data);
         router.push({
             name: "logged"
         })
     }).catch((e)=> {
         throw new Error(e)
-        //localStorage.setItem('token','red');
+    })
+    
+}
+
+
+export async function postName(gameName){
+    await axios({
+        url: "http://localhost:3000/game",
+        method: "POST",
+        data: {gameName:this.gameName}
+    }).then((response)=> {
+        console.log(response)
+        localStorage.setItem('gameName',gameName);
+        router.push({
+            name: "game"
+        })
+    }).catch((e)=> {
+        throw new Error(e)
     })
     
 }

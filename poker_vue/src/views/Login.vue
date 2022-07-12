@@ -1,7 +1,5 @@
 <script >
-
 import { LoginAPI } from '../store/login/actions'
-
 
 export default {
   name: 'Login',
@@ -14,7 +12,7 @@ export default {
   },
   methods: {
     async login () {
-        try{     
+        try{
             if(this.username=="" || this.password==""){
                 console.log('No puede haber campos vacios');
             }else{
@@ -22,18 +20,17 @@ export default {
             }            
         }catch(e){
             this.showError = true
-            console.log("Erorr")
+            console.log("Error")
         }  
     }
   }
 }
-
 </script>
 
 <template>
     <div class="container">
         <h2>LOGIN</h2>
-        <div v-if="showError">error!</div>
+        <div class="pops" v-if="showError">error!</div>
         <form @submit.prevent ="login">
             <div class="data">
                 <label for="username">Username:</label>

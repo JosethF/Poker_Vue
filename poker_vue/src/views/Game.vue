@@ -10,6 +10,8 @@ const display = ()=>{
     isOpen.value = true;
   }
 }
+
+var user = localStorage.getItem('username');
 </script>
 
 <template>
@@ -20,13 +22,16 @@ const display = ()=>{
         <a href="/">
           <img src="https://boldworkplanner.com/wp-content/themes/boldworkplannertheme/imgs/logo-bold.svg" alt="logo">
         </a>
-        <h1>Session 1</h1>
+        <h1>{{gameName}}</h1>
       </div>
       <div class="right">
             <ul>
-              <li> Player 1</li>
+              <li>{{user}}</li>
               <div class="button-mod">
-                <li> <a href="invite">New Players</a></li>
+                <li> <a href="config">CONFIG</a></li>
+              </div>
+              <div class="button-mod">
+                <li> <a href="#">New Players</a></li>
               </div>
               <div class="button-mod" @click="display()">
                 <li> <i class="fa fa-bars" aria-hidden="true"></i></li>

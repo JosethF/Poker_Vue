@@ -1,6 +1,38 @@
-<script setup>
-</script>
+<script>
+// import { getName } from '../store/login/actions'
+import axios from "axios";
 
+export default {
+  name: 'NameRoom',
+  data () {
+    return {
+      gameName: ''
+    }
+  },
+  methods: {
+    async getNamefunction () {
+        try{
+            if(this.gameName==""){
+                console.log('No puede haber campos vacios');
+            }else{
+                await axios({
+                  url: "game",
+                  method: "GET",
+                  data: {gameName:this.gameName}
+                }).then((response)=> {
+                    console.log(response)
+                    router.push({name: "game"})
+                }).catch((e)=> {
+                    console.log(e)
+                })
+            }
+        }catch(e){
+          console.log(e)
+        }
+    }
+  }
+}
+</script>
 <template>
   <div class="menu-container">
   <header>
@@ -16,9 +48,16 @@
   <main>
     <div class="container">
       <p>Choose a name for your game</p>
-    <form action="game" method="GET">
+    <form @submit.prevent="getNamefunction">
+    <!-- <form method="GET" action="game"> -->
       <div class="data">
-          <input type="text" name="gamename" placeholder="Enter Game Name"/>
+          <input 
+          type="text" 
+          name="gameName" 
+          v-model="gameName"
+          placeholder="Enter Game Name"
+          required
+          >
       </div>
       <div class="data">
           <button type="submit">Create Game</button>
