@@ -1,6 +1,5 @@
-<script setup>
+<script>
 </script>
-
 <template>
   <div class="menu-container">
   <header>
@@ -16,9 +15,16 @@
   <main>
     <div class="container">
       <p>Choose a name for your game</p>
-    <form action="game" method="GET">
+    <!-- <form @submit.prevent="getNamefunction"> -->
+    <form method="GET" action="game">
       <div class="data">
-          <input type="text" name="gamename" placeholder="Enter Game Name"/>
+          <input 
+          type="text" 
+          name="gameName" 
+          v-model="gameName"
+          placeholder="Enter Game Name"
+          required
+          >
       </div>
       <div class="data">
           <button type="submit">Create Game</button>

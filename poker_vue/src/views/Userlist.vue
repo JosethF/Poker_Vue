@@ -18,15 +18,12 @@ export default {
           Authorization: "Bearer "+token
         }
       })
-
       this.User = response.data.User
-      
     }catch(e){
       console.log(e)
     }
   }
-};
-
+}
 </script>
 
 <template>
@@ -59,7 +56,7 @@ export default {
                       <div class="right">
                         <ul>
                           <div class="button-mod">
-                            <li> EDIT</li>
+                            <li>EDIT</li>
                           </div>
                           <div class="button-mod">
                             <li> <a href="creategame">DELETE</a></li>

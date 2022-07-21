@@ -9,6 +9,10 @@ header {
     align-items: center;
     padding: 0.75rem;
 }
+
+p{
+    font-size: 1.1rem;
+}
 form{
     width: 100%;
 }
@@ -111,10 +115,12 @@ header, .right > ul {
     background-color: #74b3ff;
 }
 .button-mod > li {
+    list-style: none;
     margin: auto;
 }
 .button-mod > li > a {
     color: white;
+    font-weight: bold;
 }
 .container{
     width: 65%;
