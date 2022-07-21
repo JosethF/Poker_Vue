@@ -1,4 +1,6 @@
 <script>
+import {queryAPI} from '../store/query/actions'
+
 </script>
 <template>
   <div class="menu-container">
@@ -14,22 +16,50 @@
   <div class="space"></div>
   <main>
     <div class="container">
-      <p>Choose a name for your game</p>
+      <h2>CONFIGURATION</h2>
+
     <!-- <form @submit.prevent="getNamefunction"> -->
-    <form method="GET" action="game">
-      <div class="data">
-          <input 
-          type="text" 
-          name="gameName" 
-          v-model="gameName"
-          placeholder="Enter Game Name"
-          required
-          >
-      </div>
-      <div class="data">
-          <button type="submit">Create Game</button>
-      </div>
-    </form>
+      <form @submit.prevent="getIssue">
+        <div class="data">
+            <input 
+            type="text" 
+            name="gameName" 
+            v-model="gameName"
+            placeholder="Enter Game Name"
+            required
+            >
+        </div>
+        <div class="data">
+            <label for="repository">Usuario:</label>
+            <input 
+            type="text" 
+            name="repository" 
+            placeholder="Enter Repository Name"
+            v-model="usuario"
+            />
+        </div>
+        <div class="data">
+            <label for="token">Personal access token:</label>
+            <input 
+            type="password" 
+            name="token" 
+            placeholder="Enter Token"
+            v-model="token"
+            />
+        </div>
+        <div class="data">
+            <label for="project">Project Number:</label>
+            <input 
+            type="number" 
+            name="project" 
+            placeholder="Enter Project Number"
+            v-model="project"
+            />
+        </div>
+        <div class="data">
+            <button type="submit">Create Game</button>
+        </div>
+      </form>
     </div>
   </main>
 </template>
