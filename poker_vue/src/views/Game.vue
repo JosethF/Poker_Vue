@@ -1,6 +1,6 @@
 <script>
 
-//import {queryAPI} from '../store/query/actions'
+import {queryAPI} from '../store/query/actions'
 
 
 export default{
@@ -20,7 +20,8 @@ export default{
           console.log("Error")
           return
         }
-        await queryAPI(this.status)
+       this.issues = await queryAPI(this.status)
+
       }catch(e){
         console.log("Error")
       }
@@ -76,7 +77,7 @@ export default{
             </div>
           </form>
           <div class="issues">
-            <table v-for="{name,status,label} in issues" :key="id">
+            <table v-for="{title,status,label} in issues" :key="issues.id">
                 <thead>
                     <tr>
                         <th scope="col">Name Issues</th>
@@ -86,7 +87,7 @@ export default{
                 </thead>
                 <tbody >
                     <tr >
-                        <td>{{name}}</td> 
+                        <td>{{title}}</td> 
                         <td>{{status}}</td>
                         <td>{{label}}</td>
                     </tr>
