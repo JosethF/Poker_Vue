@@ -4,28 +4,30 @@ export default {
   name: "get-rules",
   data() {
     return {  
-      User:{},
+      // User:{},
       showUserList: false
     }
   },
   async mounted(){
     try{
       const token = localStorage.getItem('token')
+      const permiss = localStorage.getItem('permiss')
       if(token==null) return;
-      const response = await axios({
-        url: "http://localhost:3001/userList",
-        method: "GET",
-        headers:{
-          Authorization: "Bearer "+token
-        }
-      })
-      this.User = response.data.User
-      console.log(this.User);
+      if(permiss=='ADMIN') this.showUserList = true;
+      // const response = await axios({
+      //   url: "http://localhost:3001/userList",
+      //   method: "GET",
+      //   headers:{
+      //     Authorization: "Bearer "+token
+      //   }
+      // })
+      // this.User = response.data.User
     }catch(e){
       console.log(e)
     }
   }
 }
+
 </script>
 
 <template>
@@ -39,7 +41,7 @@ export default {
         <div class="right">
           <ul>
             <li v-if="showUserList"> <a href="userlist">USERLIST</a></li>
-            <li> <a href="login">LOGOUT</a></li>
+            <li> <a href="/">LOGOUT</a></li>
             <div class="button-mod">
               <li> <a href="creategame">START NEW GAME</a></li>
             </div>

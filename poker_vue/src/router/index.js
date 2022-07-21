@@ -57,12 +57,10 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  //to.meta.auth
-  /*if(!to.meta.auth){
-    next({ name: "login" });
-  } */
   if(to.name==="home"){
     localStorage.removeItem('token')
+    localStorage.removeItem('username')
+    localStorage.removeItem('permiss')
   }
   if(to.meta.auth === false){
     next()

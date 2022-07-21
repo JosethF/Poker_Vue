@@ -1,6 +1,6 @@
 <script>
 
-import {queryAPI} from '../store/query/actions'
+//import {queryAPI} from '../store/query/actions'
 
 
 export default{
@@ -9,6 +9,7 @@ export default{
     return{
       issues:[],
       status: "",
+      user: localStorage.getItem('username'),
       isOpen:false
     }
   },
@@ -26,8 +27,6 @@ export default{
     }
   }
 }
-
-var user = localStorage.getItem('username');
 </script>
 
 <template>
@@ -38,7 +37,7 @@ var user = localStorage.getItem('username');
         <a href="/">
           <img src="https://boldworkplanner.com/wp-content/themes/boldworkplannertheme/imgs/logo-bold.svg" alt="logo">
         </a>
-        <h1>{{gameName}}</h1>
+        <h1></h1>
       </div>
       <div class="right">
             <ul>

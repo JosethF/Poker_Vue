@@ -7,13 +7,13 @@ export async function LoginAPI(username, password){
         method: "POST",
         data: {
             username: username,
-            password: password
+            password: password,
         }
     }).then((response)=> {
-        console.log(response)
         localStorage.setItem('username',username);
-        localStorage.setItem('permiss',permiss);
-        localStorage.setItem('token',response.data);
+        localStorage.setItem('token',response.data.token);
+        localStorage.setItem('permiss',response.data.permiss);
+        //console.log(response);
         router.push({
             name: "logged"
         })
@@ -26,8 +26,8 @@ export async function LoginAPI(username, password){
 
 export async function postName(gameName){
     await axios({
-        url: "http://localhost:3000/game",
-        method: "POST",
+        url: "game",
+        method: "GET",
         data: {gameName:this.gameName}
     }).then((response)=> {
         console.log(response)
