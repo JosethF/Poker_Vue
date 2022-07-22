@@ -1,10 +1,5 @@
 <script>
-<<<<<<< HEAD
-//import {queryAPI} from '../store/query/actions'
-=======
-
 import {queryAPI} from '../store/query/actions'
->>>>>>> 6b8dd11f874dd90704222a6e591071a3335c9b75
 
 export default{
   name: "Query",
@@ -19,12 +14,7 @@ export default{
   methods:{
     async query(){
       try{
-        if(this.status===""){
-          console.log("Error")
-          return
-        }
-       this.issues = await queryAPI(this.status)
-
+        this.issues = await queryAPI(this.status)
       }catch(e){
         console.log("Error")
       }
@@ -80,7 +70,7 @@ export default{
             </div>
           </form>
           <div class="issues">
-            <table v-for="{title,status,label} in issues" :key="issues.id">
+            <table>
                 <thead>
                     <tr>
                         <th scope="col">Name Issues</th>
@@ -88,7 +78,7 @@ export default{
                         <th scope="col">Label</th>
                     </tr>
                 </thead>
-                <tbody >
+                <tbody v-for="{title,status,label} in issues" :key="issues.id">
                     <tr >
                         <td>{{title}}</td> 
                         <td>{{status}}</td>

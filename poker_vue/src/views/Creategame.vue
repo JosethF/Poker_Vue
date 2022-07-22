@@ -1,5 +1,29 @@
 <script>
-import {queryAPI} from '../store/query/actions'
+import {repoConfig} from '../store/query/actions'
+
+export default {
+  name:"gameConnection",
+  data(){
+    return{
+      room:"",
+      user:"",
+      token:"",
+      project:"",
+      showError:false
+    }
+  },
+  methods:{
+    async connection(){
+      try{
+        await repoConfig(this.user,this.token,this.project,this.room)
+      }catch(e){
+        this.showError=true;
+        console.log("Error"+e)
+      }
+    }
+  }
+}
+
 
 </script>
 <template>
@@ -19,23 +43,25 @@ import {queryAPI} from '../store/query/actions'
       <h2>CONFIGURATION</h2>
 
     <!-- <form @submit.prevent="getNamefunction"> -->
-      <form @submit.prevent="getIssue">
+      <div v-if="showError">Error!</div>
+      <form @submit.prevent="connection">
         <div class="data">
-            <input 
+            <label for="room">Room:</label>
+            <input
             type="text" 
-            name="gameName" 
-            v-model="gameName"
-            placeholder="Enter Game Name"
+            name="room"
+            v-model="room"
+            placeholder="Enter Game Room"
             required
             >
         </div>
         <div class="data">
-            <label for="repository">Usuario:</label>
+            <label for="repository">User:</label>
             <input 
             type="text" 
             name="repository" 
             placeholder="Enter Repository Name"
-            v-model="usuario"
+            v-model="user"
             />
         </div>
         <div class="data">
