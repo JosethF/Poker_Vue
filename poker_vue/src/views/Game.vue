@@ -1,7 +1,5 @@
 <script>
-
 //import {queryAPI} from '../store/query/actions'
-
 
 export default{
   name: "Query",

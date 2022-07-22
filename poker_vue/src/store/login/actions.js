@@ -23,23 +23,6 @@ export async function LoginAPI(username, password){
     
 }
 
-
-export async function postName(gameName){
-    await axios({
-        url: "game",
-        method: "GET",
-        data: {gameName:this.gameName}
-    }).then((response)=> {
-        console.log(response)
-        localStorage.setItem('gameName',gameName);
-        router.push({
-            name: "game"
-        })
-    }).catch((e)=> {
-        throw new Error(e)
-    })
-    
-}
 export async function RegisterAPI(username,password){
     await axios({
         url: "http://localhost:3001/register",
